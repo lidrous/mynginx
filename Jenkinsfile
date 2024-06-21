@@ -14,13 +14,15 @@ pipeline {
                 sshagent(credentials: ['my-ssh-key']) { // Use the ID you provided
                     sh '''
                     # Variables
+                    PROD_SERVER="192.168.100.67"
                     DEPLOY_DIR="/var/www/html"
-                    
+                    USER="lidrous"
+
                     # Copy the files to the deploy directory
-                    sudo cp -r * $DEPLOY_DIR
+                    scp -o StrictHostKeyChecking=no -r * $USER@$PROD_SERVER:$DEPLOY_DIR
 
                     # Restart Nginx to apply changes
-                    sudo systemctl restart nginx
+                    ssh -o StrictHostKeyChecking=no $USER@$PROD_SERVER "sudo systemctl restart nginx"
                     '''
                 }
             }
