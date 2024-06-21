@@ -17,7 +17,7 @@ pipeline {
                     PROD_SERVER="192.168.100.67"
                     DEPLOY_DIR="/var/www/html"
                     USER="lidrous"
-
+                    
                     # Ensure the target directory exists
                     ssh -o StrictHostKeyChecking=no $USER@$PROD_SERVER "sudo mkdir -p $DEPLOY_DIR"
 
@@ -32,3 +32,4 @@ pipeline {
         }
     }
 }
+
