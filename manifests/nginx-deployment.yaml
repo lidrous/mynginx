@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: your-dockerhub-username/nginx-hello-world:latest
+        image: lidrous/nginx-hello-world:latest
         ports:
         - containerPort: 80
