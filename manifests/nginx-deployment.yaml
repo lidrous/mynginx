@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: lidrous/nginx-hello-world:4.0-15
+        image: lidrous/nginx-hello-world:5.0
         ports:
         - containerPort: 80
